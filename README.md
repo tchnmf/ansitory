@@ -17,9 +17,9 @@ prompt> podman run -dt --name ansitory -v /$HOME/gitlab/:/srv spacefunk/ansitory
 ```
 
 
-#### deploy with ansible
+#### deploy using ansible
 ```
-- hosts: all
+- hosts: 'any'
   gather_facts: no
   vars:
     container_apps:
@@ -39,14 +39,14 @@ prompt> podman run -dt --name ansitory -v /$HOME/gitlab/:/srv spacefunk/ansitory
 
   - name: deploy to podman
     containers.podman.podman_container:
-      state: started
-      name:   "{{ item.name }}"
-      image:  "{{ item.image }}:{{ item.tag }}"
-      ip:     "{{ item.ip | default() }}"
-      pod:    "{{ item.pod | default() }}"
-      ports:  "{{ item.ports | default() }}"
-      volume: "{{ item.volume | default() }}"
-      env:    "{{ item.environment | default() }}"
-      command: sleep infinity 
+      state: 	started
+      command: 	sleep infinity 
+      name:   	"{{ item.name }}"
+      image:  	"{{ item.image }}:{{ item.tag }}"
+      ip:     	"{{ item.ip | default() }}"
+      pod:    	"{{ item.pod | default() }}"
+      ports:  	"{{ item.ports | default() }}"
+      volume: 	"{{ item.volume | default() }}"
+      env:    	"{{ item.environment | default() }}"
     loop:     "{{ container_apps }}"
 ```

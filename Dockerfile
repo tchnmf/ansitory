@@ -16,7 +16,7 @@ MAINTAINER 	John Doe <jdoe@xyz.com>
 
 # yum packages
 RUN yum check-update; \
-    yum install -y ansible; \
+    yum -y install ansible; \
     yum -y install python3; \
     yum -y install python3-pip; \
     yum -y install python3-pycurl; \
