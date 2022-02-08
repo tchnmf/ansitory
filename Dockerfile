@@ -16,13 +16,14 @@ MAINTAINER 	John Doe <jdoe@xyz.com>
 
 # yum packages
 RUN yum check-update; \
+    yum install -y ansible; \
     yum -y install python3; \
     yum -y install python3-pip; \
     yum -y install python3-pycurl; \
     yum -y install python3-ovirt-engine-sdk4; \
-    yum install -y ansible
-
+    yum -y install yamllint
 # pip packages
+RUN pip install ansible-tower-cli
 
 # ansible collections
 RUN ansible-galaxy collection \
