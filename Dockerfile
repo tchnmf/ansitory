@@ -1,22 +1,20 @@
 # 
-# Ansitory
+# ANSITORY
 # ========
-#  
-# description:
-#   Ansible collections running in fedora container.
-#   - oVirt
-#   - ...
+# ansible environment running in fedora container.
 #
-# version: 1.0
+# collections:
+#   - ovirt.ovirt
+#
+# todo: 
+#   - setup non-root user
+#
 
-FROM docker.io/library/fedora:34
+FROM 		docker.io/library/fedora:34
+LABEL 		description="ansible fedora container"
+MAINTAINER 	John Doe <jdoe@xyz.com>
 
-LABEL description="Ansible inside Fedora container"
-MAINTAINER John Doe <jdoe@xyz.com>
-
-# Todo: Setup user 
-
-# Yum packages
+# yum packages
 RUN yum check-update; \
     yum -y install python3; \
     yum -y install python3-pip; \
@@ -24,10 +22,11 @@ RUN yum check-update; \
     yum -y install python3-ovirt-engine-sdk4; \
     yum install -y ansible
 
-# Pip packages
+# pip packages
 
-# Ansible collections
-RUN ansible-galaxy collection install ovirt.ovirt
+# ansible collections
+RUN ansible-galaxy collection \
+	 install ovirt.ovirt
 
-# Copy Ansible config
+# copy ansible config
 COPY ./src/ansible.cfg /etc/ansible/ansible.cfg
