@@ -5,7 +5,7 @@
 #
 # collections:
 #   - ovirt.ovirt
-#
+#   - awx.awx
 # todo: 
 #   - setup non-root user
 #
@@ -26,8 +26,8 @@ RUN yum check-update; \
 RUN pip install ansible-tower-cli
 
 # ansible collections
-RUN ansible-galaxy collection \
-	 install ovirt.ovirt
+RUN ansible-galaxy collection install ovirt.ovirt; \
+    ansible-galaxy collection install awx.awx
 
 # copy ansible config
 COPY ./src/ansible.cfg /etc/ansible/ansible.cfg
