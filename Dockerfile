@@ -25,9 +25,9 @@ RUN yum check-update; \
     yum -y install ansible
  
 # pip packages
-RUN pip install hvac; \
-    pip install kubernetes
-    #pip install ansible-modules-hashivault
+RUN pip install kubernetes; \
+    pip install hvac
+    #pip install ansible-modules-hashivault # this is going to pull newest ansible from pi and throws errors
 
 # ansible collections
 RUN ansible-galaxy collection install ovirt.ovirt; \
