@@ -30,7 +30,8 @@ RUN yum check-update; \
 
 # ansible collections
 RUN ansible-galaxy collection install ovirt.ovirt; \
-    ansible-galaxy collection install awx.awx
+    ansible-galaxy collection install awx.awx; \
+    ansible-galaxy collection install community.okd
 
 # copy ansible config
 COPY ./src/ansible.cfg /etc/ansible/ansible.cfg
