@@ -1,0 +1,6 @@
+ANSITORY_USER='jdoe'
+ANSITORY_OC_USER='jdoe'
+ANSITORY_OC_PASS='password123'
+ANSITORY_OC_API='https://api.cluster.example.org'
+ANSITORY_OC_DOMAIN='apps.cluster.example.org'
+
